@@ -1,0 +1,133 @@
+{ Script made by Kavex
+}
+var
+  Create, Sell, Error, Cancel: TSCARBitmap;
+  x, y, count: Integer;                 
+  ClientBox: TBox;
+   
+procedure Script;
+begin
+
+Sell := TSCARBitmap.Create('deNrTYBBmYOOXGEWjCCvq6J04ffZ8CPvFy1fkG' +
+    'WJgYb9t554rV69fvHQFSK7ftNXSwYMO9p49f6GqvhnOzcwv8fAPpYO9Hz9+wiX' +
+    'lExR58vTZW3fuAtGO3Xv1TG2paO/ufQemzpzLJSyDJq6kZXTh4mUHdz8It7Cs+' +
+    'tqNmxBlVLFXRFZ19vxFl69cmzBlhraRFVy8d+LUitomZJW79u4Pj02mlr0QJKm' +
+    'oVVnXdObc+WUr1wDZQJGNW7Y/ePgY6Ec4AnJTsvKJtHfB4uVwjTUNrQQdADRw1' +
+    'doNQMbOPfua23tol67QkLNXIDCFAxmTp8/eu/8QjewVklaeNG2WrYs3hKuubwb' +
+    '0JjBmgWxdE5u3796V1zRCpExtXTZv2ymnpkcVewUkFYHReu78RaD2R4+f3Ll3v' +
+    '2fCVLisnavPwcPHgILXrt8EBkJ2QRntwnkUDQ8EAB7BTIo=');
+
+Create := TSCARBitmap.Create('deNrtVv1PUlEY9r/o/+iH1lprLjbLNbM5ramFM' +
+    'hQzP2I6NT/K0lRMMzVLrfxEK9R0oZUzK1vNOXRkpIiI+I0IhIqATVB6trvd3V3' +
+    'ociXtl7h7frg757zve55z3vd5DyfgSMDRwIt++OHHvlBa1fjth2rTYnU4nfbtX' +
+    '3MLy919g+Gxaf8g9MSU5nJC9t/74VyIk39Xblltkp7+69miyLjMhLSCyro28ML' +
+    '4YbMIiUx2uVwHQmRYNq7TG7B/96kTZ68cNpHzUSkHQgRXsLe3l5xZzLzsedfbL' +
+    'unAveqmNeNPxL1V8ogYD45IlPYPGYxmh8NpMm8MfBoO4wqphqdD+e2dfQtLup0' +
+    'dB7C0om8Qd5OzyGQX5UMOkFNePdPQ2z+knJ71yhdEpjXzK6sGUVVDdkHVmfAEI' +
+    'ifnFldUM3N5RQ8jeOlpeWUy+cSq3hganUoaDn0dxfYKy+qj4rO4iTlggRqseNz' +
+    'KfCNsPNMwpdbiqNkQce7uCoR3qIM9bz7ghE8Gc6mDkyrNxy8y6pZornC2Y+OTz' +
+    'ETYeKZhWbdW39zJhgi0hTaIGy+vaaYNZuTft9m3GYrrSUuXdn6ZmYgPnkGktlH' +
+    'Chgj1GMkNxFzLpa08dS4GycNQvDXPXswv6hiI+OYZBfKy+50PRBAI4dBx3AH1i' +
+    'BfeJpYh7uDnERSX1WYHoBVIdWYiLD3TAGWQK6Z8IIK6Q7jiiqexSXnuIBIAPWJ' +
+    '9w6Kc1kIiIIwA5A55zkyEjWd3CHNKcV+85Jv7JUJkcmN7D4PVg1oxsjowhLev1' +
+    'GLj2SNGxhSQiEv8DPep3LvVDESgLYhISDGJY5zIaEEW8S+qbFjftNCsOl8PeCX' +
+    'i1bNHBIUJFEr1ltUOc/QI3E5KVkldU8eMdhHeiOeWRyKQVg3kftVQXtPCT83Hv' +
+    'aNBqGcXFJNqMknQ8rBztEWix7V19OEtBLfHg6LJxwMaJQTnanph6o0Slp7/BJD' +
+    'FSiyzbFnRL5APsBJLeskz8UiEiPhK+l5vMCE/YYWmCXWl6n9SZhEMzeubKBajy' +
+    'YwmglpGyeNdRK5plUhhi5NERPae/fDDj/8KvwFPI3z8');
+
+Error := TSCARBitmap.Create('deNq9lP1PEnEcx/0z+gP6T1prrecyMzMkMxAlw' +
+    'AcQDZRIypSMyNTZgxqK5xBTbLBiLi3sDMwH7EJra85VijxXUsABfdhtN8f83o/' +
+    'f7bX33vf+bO/PHfc9DhYcKJA13qxp0uJRqVKDDbFcfV3RjEer61XYENU2YUMoU' +
+    'wqkDShV6/RLXmp3N07TdDAUdjjfsFPCastmsx3GXjZxkZ5UKtXVN4BquyZRoJC' +
+    'rW6E/GouNTzmemggX6abTac/iCjMlrJO5XQ96mMthy4tMJmOdtHMUXhXXl1fX7' +
+    'auzLjKVorV3DWxiczih/2FfP3izZQJ82/1H4EH/JRKk+yNHG+iVqloU/p2Ab/3' +
+    'r3gTuLZFMviPd4OFBcrs6u2oaNYFg6NvGJkw52oCySlmZULqvwmt6/2EhL/cHg' +
+    't5Pn8EPjVph1229kVr7Eo5E5apbqB5WLwskKOLxv2/n5vPCrW3/KrUGxkTkdtF' +
+    '0GnTK4eToYblUIUYBzwXnIS+EH3Z5lQLzfGQMtjwZNHspXyKRbDd0c1QxXCyvQ' +
+    'rHt36F863sTnkACtTMuEvyg2QK7tG2dQqnix8+tSDRWd0PL0QZc4FeimJ51wfe' +
+    'ibNGxiWXiJfTrjb3gB4ZHwWvu3APf0Kz79fvPxuZ3vkjGUXieJ0AhkinhgIXCE' +
+    'RMxZuh+/Gp6Br7ouXkPM+0fImBXi66DudQbe+DGFpZWOArPlVZwIFGoPIvLzP8' +
+    'GvKlxm50dPTONwC51azubMCfTZn+NajtTUo6NU8V8bJwo4mHjWGEpNo6eLcHGk' +
+    'dPF2Dh8sggbh44XYuM/Js140w==');
+
+                                   
+Cancel := TSCARBitmap.Create('deNrtlldPVFEUhfkb/g0fjPHBEDGgMQgaNKEJS' +
+    'BOpAR1Eqg0wCCLSRErooQiiSEIVpIpSIkIApUtHYIahDRD8zMSbmxkd5hJfSCZ' +
+    'ZD3fu7LvPWWfvtdcxMzpmdNz4qgEGGCAVBaVVX/qH9Qw2sXTJLqwYHplY39jc3' +
+    'dtbU64PDI1k5JYZmzsdUVLXvUOnZxdAalaxm989axeZb9DjzPzyiamZ3KK3R5H' +
+    'U2Uuus/NLnV19fy3KSVPbo0gqp+jN8oocarrDzlg455dUUjuVagdMTc/RnOIA1' +
+    'goIifG5E9XTN7im3Njc2h78NkbFNfK4+Ia3dfauytd2dndXVhUf2rt4Iw54mVO' +
+    'qXkWxpvzc2+8pe3QIUiNjUyUVNQeGNbZ8YrcPYl7YuAZe87gLI3YVl5wjJlVV2' +
+    '8w+swpeO/uE09LVDa1s7KKNtxAT/DABtoR5ySKtHP39Q2JqG9u/j00KAXVNHUv' +
+    'Lq09TcpEAZMsq69D47fBYSaToLsYCa+kzSTTe1Lxv4yTFpCgQdIQ3J0ysFxaXn' +
+    '6cVCBnUlDXynDpnr34Ii0raVqkcPUPE/3LgM3MLkkhZ2vnu7+87eYUeor3Tskt' +
+    'Hx3+ISbGiRgzFFdogPjWPKugQaevHHg5K+zApFo0tlZTDzeBDkEpMLxyfnBGTw' +
+    'hQ0Ypg/5e/q1c/VDW2oSUdCdJqSWaT9Hm2ylv6k6BCkIW7af8HOPYiGZ+wr1zf' +
+    'A/OLP2blFSaRaOrrrmzp0LEEdt7ZViE4D7DA995WkQYFODzQjc2sv5DAwNBr9L' +
+    'AONA/q/oblTaqX4qbtSFVUNaEobZlbukkjlFVdy5qcvOOiIYRzR2BpGJrX9EtL' +
+    'y5QqljoUoZWf31//iU6aX3ZhRdLu2+SLSgNAnPETHZ6zIFRr/MgEkkcIKIcWU1' +
+    'ta1MP0YxdrWZn8j6BDXJK5Gao0wb8lJuW+FxfL54tKyOoOFrQ/7gQUWzM/zVzy' +
+    'oL/dD8TQ7kBQIjUzElDFczgonkoXH4VPkIf+fFm1FsGyDDrd1C4yITua0uRsIZ' +
+    'ifpQkvTcmFAXwiT44IC0zg2KZtJog7A2XEl8iMuyDJ7mZkchTDQ9CEF3P3v8wn' +
+    '5f98o5Irm9m5XvwhxAL6GU3CjwLNQGZ8LpZRKygADDDDAgCOKX//sLfY=');
+    
+ClientBox := GetClient.ImageArea;
+end;
+  
+  
+begin
+  Script;
+  Repeat       
+// Walking starts //
+writeLn('Watching Andy');
+  if FindBitmap(x, y, Sell, 0, 0, ClientBox.X2, ClientBox.Y2) then
+  begin   
+      count :=  0;
+      writeLn('Clicking Sell');
+      MoveMouse(x, y);
+      Wait(300);
+      ClickMouse(x, y, mbLeft); 
+      Wait(600);
+  end;    
+             
+  if count = 0 then  
+  begin
+    if FindBitmap(x, y, Create, 0, 0, ClientBox.X2, ClientBox.Y2) then
+    begin 
+        writeLn('Clicking Create');
+        MoveMouse(x, y);
+        Wait(300);
+        ClickMouse(x, y, mbLeft); 
+        Wait(1200);
+    end;   
+  end; 
+  if count = 1 then  
+  begin
+    if FindBitmap(x, y, Cancel, 0, 0, ClientBox.X2, ClientBox.Y2) then
+    begin         
+        writeLn('Clicking Cancel');
+        MoveMouse(x, y);
+        Wait(300);
+        ClickMouse(x, y, mbLeft); 
+        Wait(800);     
+    end;
+  end;   
+  
+  if FindBitmap(x, y, Error, 0, 0, ClientBox.X2, ClientBox.Y2) then
+  begin         
+      count := 1;
+      writeLn('Clicking Ok');
+      MoveMouse(x, y);
+      Wait(300);
+      ClickMouse(x, y, mbLeft); 
+      Wait(600); 
+  end;
+  
+// Script Repeat 
+  until (False);
+  
+ Create.Free;
+ Sell.Free;         
+ Error.Free;
+end.
